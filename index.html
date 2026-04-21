@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ahmet Furkan Koç — Product Security Engineer</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ahmet Furkan Koç — Product Security Engineer" />
+  <meta property="og:description" content="Cloud Security Engineer at Toshiba. Specializing in Azure Defender, CSPM, AI-driven threat detection, and enterprise endpoint security." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ahmetkoc.github.io" />
+  <meta property="og:image" content="https://ahmetkoc.github.io/assets/profile.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ahmet Furkan Koç — Product Security Engineer" />
+  <meta name="twitter:description" content="Cloud Security Engineer at Toshiba. Specializing in Azure Defender, CSPM, AI-driven threat detection, and enterprise endpoint security." />
+  <meta name="twitter:image" content="https://ahmetkoc.github.io/assets/profile.jpg" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <canvas id="bg-canvas"></canvas>
+  <button id="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M18 15l-6-6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <!-- Mobile menu overlay -->
+  <div id="mobile-overlay"></div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">AFK</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#recommendations">Recommendations</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <span class="status-badge">
+          <span class="status-dot"></span>
+          Open to Opportunities
+        </span>
+        <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-layout">
+      <div class="hero-content">
+        <p class="hero-greeting">Hi, I'm</p>
+        <h1 class="hero-name">Ahmet Furkan Koç</h1>
+        <h2 class="hero-title"><span id="typed-title"></span><span class="typed-cursor">|</span></h2>
+        <p class="hero-sub">
+          Securing cloud infrastructure at scale — Azure, AI/LLM workflows,
+          and automated threat detection.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">View My Work</a>
+          <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+          <a href="assets/ahmetkocresume.pdf" download class="btn btn-ghost btn-resume">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Resume
+          </a>
+        </div>
+        <div class="hero-badges">
+          <span class="badge">CompTIA Security+</span>
+          <span class="badge">Azure Defender</span>
+          <span class="badge">CSPM</span>
+          <span class="badge">SIEM/SOAR</span>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <div class="avatar-ring">
+          <img src="assets/profile.jpg" alt="Ahmet Furkan Koç" class="hero-avatar" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-fade-top"></div>
+    <div class="container">
+      <div class="section-heading-wrap">
+        <div class="section-label">About</div>
+        <h2 class="section-heading">Building secure systems,<br />one layer at a time.</h2>
+        <span class="heading-line"></span>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            I'm a Product Security Engineer focused on cloud security, threat detection, and AI-driven
+            security automation. Currently at <strong>Toshiba</strong> in Frisco, TX, I work across
+            CSPM, endpoint security, and application security to protect enterprise infrastructure at scale.
+          </p>
+          <p>
+            I hold a <strong>B.S. in Computer Science from UT Dallas (2025)</strong> and bring hands-on
+            experience with Azure Defender, CrowdStrike, Splunk, and custom automation using PowerShell,
+            KQL, and Python. I'm passionate about leveraging AI/LLM technologies to accelerate security
+            operations and reduce response times.
+          </p>
+          <p>
+            Outside of work, I lead the <strong>Cybersecurity Community</strong> as President,
+            mentoring peers and keeping up with emerging threats and AI/ML security trends.
+          </p>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <span class="stat-num">100+</span>
+            <span class="stat-label">Misconfigurations Remediated</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">35%</span>
+            <span class="stat-label">Cloud Security Posture Improvement</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">11K+</span>
+            <span class="stat-label">Endpoints Secured</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">45%</span>
+            <span class="stat-label">MTTR Reduction</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section-fade-bottom"></div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-fade-top"></div>
+    <div class="container">
+      <div class="section-heading-wrap">
+        <div class="section-label">Education</div>
+        <h2 class="section-heading">Academic Background</h2>
+        <span class="heading-line"></span>
+      </div>
+      <div class="education-card">
+        <div class="education-logo">
+          <!-- UTD Comet logo mark as inline SVG -->
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="utd-logo-svg">
+            <circle cx="40" cy="40" r="38" fill="#C75B12" stroke="#e8721a" stroke-width="2"/>
+            <text x="40" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="14" fill="white" letter-spacing="1">UT</text>
+            <text x="40" y="48" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="11" fill="white" letter-spacing="0.5">DALLAS</text>
+            <path d="M20 56 Q40 48 60 56" stroke="white" stroke-width="1.5" fill="none" opacity="0.6"/>
+            <circle cx="40" cy="62" r="3" fill="#e8721a"/>
+          </svg>
+        </div>
+        <div class="education-body">
+          <div class="education-header">
+            <div>
+              <h3 class="education-school">University of Texas at Dallas</h3>
+              <p class="education-degree">Bachelor of Science in Computer Science</p>
+            </div>
+            <span class="education-year">2025</span>
+          </div>
+          <div class="education-meta">
+            <span class="education-tag">Richardson, Texas</span>
+            <span class="education-tag">Computer Science</span>
+            <span class="education-tag">Cybersecurity Focus</span>
+          </div>
+          <div class="education-highlights">
+            <div class="edu-highlight">
+              <span class="edu-highlight-icon">🏛️</span>
+              <span>President, Cybersecurity Community Club</span>
+            </div>
+            <div class="edu-highlight">
+              <span class="edu-highlight-icon">🎓</span>
+              <span>B.S. Computer Science — Class of 2025</span>
+            </div>
+            <div class="edu-highlight">
+              <span class="edu-highlight-icon">🔐</span>
+              <span>Focus in Cloud Security & AI Systems</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section-fade-bottom"></div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-fade-top"></div>
+    <div class="container">
+      <div class="section-heading-wrap">
+        <div class="section-label">Experience</div>
+        <h2 class="section-heading">Where I've Worked</h2>
+        <span class="heading-line"></span>
+      </div>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-meta">
+            <div class="company-badge" style="background:#1a1a2e;color:#6c63ff;">T</div>
+            <span class="timeline-date">May 2025 – Present</span>
+            <span class="timeline-location">Frisco, TX</span>
+          </div>
+          <div class="timeline-body">
+            <h3 class="timeline-role">Product Security Engineer <span class="accent">·</span> Cloud</h3>
+            <span class="timeline-company">Toshiba</span>
+            <ul class="timeline-bullets">
+              <li>Improved cloud security posture by <strong>35%</strong> within six months by remediating 100+ misconfigurations through Defender for Cloud, ensuring 100% alignment with CIS benchmarks.</li>
+              <li>Conducted application security testing using SAST, DAST, and SCA on enterprise SaaS solutions, performing assessments against OWASP Top 10 and providing remediation guidance for secure CI/CD integration.</li>
+              <li>Managed endpoint security for <strong>11,000+ assets</strong>, reducing malware execution attempts through proactive threat protection and hardening.</li>
+              <li>Automated security operations using PowerShell and KQL to identify critical CVEs, query Azure Resource Graph, and accelerate threat detection workflows leveraging AI/LLM technologies.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span>Azure Defender</span><span>CrowdStrike</span><span>SAST/DAST</span>
+              <span>PowerShell</span><span>KQL</span><span>OWASP</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-meta">
+            <div class="company-badge" style="background:#0f1f1a;color:#22d3ee;">AI</div>
+            <span class="timeline-date">May 2024 – Aug 2024</span>
+            <span class="timeline-location">Frisco, TX</span>
+          </div>
+          <div class="timeline-body">
+            <h3 class="timeline-role">Cybersecurity Intern</h3>
+            <span class="timeline-company">AI Connex</span>
+            <ul class="timeline-bullets">
+              <li>Collaborated on AI-focused events promoting knowledge sharing and cybersecurity best practices.</li>
+              <li>Gained proficiency in EDR software and network protocols, enhancing skills in threat detection and mitigation.</li>
+              <li>Utilized OSINT threat tools to identify and analyze potential vulnerabilities across the threat landscape.</li>
+            </ul>
+            <div class="timeline-tags">
+              <span>EDR</span><span>OSINT</span><span>Threat Detection</span><span>Network Protocols</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="section-fade-bottom"></div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-fade-top"></div>
+    <div class="container">
+      <div class="section-heading-wrap">
+        <div class="section-label">Projects</div>
+        <h2 class="section-heading">Things I've Built</h2>
+        <span class="heading-line"></span>
+      </div>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 001.357 2.059l.263.09M14.25 3.104c.251.023.501.05.75.082M19.5 7.336V3m0 0h-3m3 0l-3 4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span class="project-date">December 2025</span>
+          </div>
+          <h3 class="project-title">Agentic AI Threat Assessment System</h3>
+          <p class="project-desc">
+            Autonomous AI agent system integrated with cloud deployment infrastructure for real-time
+            threat assessment and security monitoring. Implements agent orchestration to continuously
+            monitor cloud resources and analyze threat intelligence feeds.
+          </p>
+          <ul class="project-highlights">
+            <li>Automated classification of <strong>200+ daily security logs</strong></li>
+            <li><strong>90% accuracy</strong> in risk severity labeling vs. manual assessments</li>
+            <li>Attack vector analysis with continuous monitoring</li>
+          </ul>
+          <div class="project-footer">
+            <div class="project-tags">
+              <span>Python</span><span>Google Agentic Architecture</span><span>Cloud</span><span>AI/LLM</span>
+            </div>
+            <span class="toshiba-badge">
+              <svg viewBox="0 0 60 12" width="52" height="12" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><text x="0" y="11" font-family="Arial, sans-serif" font-weight="700" font-size="11" letter-spacing="1.5">TOSHIBA</text></svg>
+            </span>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <div class="project-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <span class="project-date">August 2025</span>
+          </div>
+          <h3 class="project-title">AI Security Agent for Cloud Monitoring</h3>
+          <p class="project-desc">
+            Security agent built with Azure AI Foundry to detect publicly exposed cloud resources
+            and identify security vulnerabilities across Azure infrastructure. Features automated
+            email notifications to resource owners with detailed exposure reports.
+          </p>
+          <ul class="project-highlights">
+            <li><strong>45% reduction</strong> in Mean Time to Respond (MTTR)</li>
+            <li>Automated alerting for publicly exposed assets</li>
+            <li>Command-based triggers with detailed guidance reports</li>
+          </ul>
+          <div class="project-footer">
+            <div class="project-tags">
+              <span>Azure AI Foundry</span><span>RAG</span><span>Python</span><span>CSPM</span>
+            </div>
+            <span class="toshiba-badge">
+              <svg viewBox="0 0 60 12" width="52" height="12" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><text x="0" y="11" font-family="Arial, sans-serif" font-weight="700" font-size="11" letter-spacing="1.5">TOSHIBA</text></svg>
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="section-fade-bottom"></div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-fade-top"></div>
+    <div class="container">
+      <div class="section-heading-wrap">
+        <div class="section-label">Skills</div>
+        <h2 class="section-heading">Technical Toolkit</h2>
+        <span class="heading-line"></span>
+      </div>
+      <div class="skills-grid">
+
+        <div class="skill-group">
+          <h4 class="skill-group-title">
+            <span class="skill-group-icon">☁️</span> Cloud &amp; Security
+          </h4>
+          <div class="skill-tags">
+            <span>Azure Defender for Cloud</span>
+            <span>Azure Sentinel</span>
+            <span>Azure Entra ID</span>
+            <span>Azure AI Foundry</span>
+            <span>CSPM</span>
+            <span>IAM</span>
+            <span>SIEM/SOAR</span>
+            <span>CrowdStrike</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h4 class="skill-group-title">
+            <span class="skill-group-icon">🛡️</span> Security Tools
+          </h4>
+          <div class="skill-tags">
+            <span>Microsoft Defender</span>
+            <span>Splunk</span>
+            <span>WIZ</span>
+            <span>OWASP ZAP</span>
+            <span>Burp Suite</span>
+            <span>MITRE ATT&amp;CK</span>
+            <span>BlackDuck</span>
+            <span>Kali Linux</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h4 class="skill-group-title">
+            <span class="skill-group-icon">💻</span> Languages &amp; Compliance
+          </h4>
+          <div class="skill-tags">
+            <span>PowerShell</span>
+            <span>Python</span>
+            <span>KQL</span>
+            <span>Bash</span>
+            <span>PCI DSS</span>
+            <span>NIST</span>
+            <span>CIS</span>
+            <span>ISO 27001</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h4 class="skill-group-title">
+            <span class="skill-group-icon">⚙️</span> DevOps &amp; Tools
+          </h4>
+          <div class="skill-tags">
+            <span>Terraform</span>
+            <span>Jenkins</span>
+            <span>GitHub / GitLab</span>
+            <span>Linux</span>
+            <span>Logic Apps</span>
+            <span>Power BI</span>
+            <span>JIRA</span>
+            <span>Confluence</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="section-fade-bottom"></div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements">
+    <div class="section-fade-top"></div>
+    <div class="container">
+      <div class="section-heading-wrap">
+        <div class="section-label">Recognition</div>
+        <h2 class="section-heading">Achievements &amp; Certifications</h2>
+        <span class="heading-line"></span>
+      </div>
+      <div class="achievements-grid">
+
+        <div class="achievement-card award">
+          <div class="achievement-icon">🏆</div>
+          <div class="achievement-body">
+            <span class="achievement-type">Award</span>
+            <h4>Intern of the Cohort — Toshiba</h4>
+            <p>Recognized for outstanding performance, dedication, and contribution as a Product Security Engineer Intern (Fall 2025).</p>
+          </div>
+        </div>
+
+        <div class="achievement-card award">
+          <div class="achievement-icon">⭐</div>
+          <div class="achievement-body">
+            <span class="achievement-type">Award</span>
+            <h4>WayUp Top Intern — Summer 2025</h4>
+            <p>Elected as a top intern across cohort for outstanding contribution to the company.</p>
+          </div>
+        </div>
+
+        <div class="achievement-card cert">
+          <div class="achievement-icon cert-logo comptia">C+</div>
+          <div class="achievement-body">
+            <span class="achievement-type">CompTIA · Certification</span>
+            <h4>CompTIA Security+</h4>
+            <p>Industry-recognized certification validating foundational cybersecurity knowledge and skills.</p>
+          </div>
+        </div>
+
+        <div class="achievement-card cert">
+          <div class="achievement-icon cert-logo comptia">C+</div>
+          <div class="achievement-body">
+            <span class="achievement-type">CompTIA · Certification</span>
+            <h4>Cloud Security — CompTIA</h4>
+            <p>Validates skills in securing cloud environments, architecture, and infrastructure across major platforms.</p>
+          </div>
+        </div>
+
+        <div class="achievement-card cert">
+          <div class="achievement-icon cert-logo ms">Ms</div>
+          <div class="achievement-body">
+            <span class="achievement-type">Microsoft · Certification</span>
+            <h4>Microsoft Security Essentials Professional</h4>
+            <p>Professional-level Microsoft certification covering core security principles, identity, and compliance solutions.</p>
+          </div>
+        </div>
+
+        <div class="achievement-card cert">
+          <div class="achievement-icon cert-logo ms">Ms</div>
+          <div class="achievement-body">
+            <span class="achievement-type">Microsoft · Certification</span>
+            <h4>Generative AI — Microsoft</h4>
+            <p>Certification covering applied generative AI concepts and their integration into enterprise workflows.</p>
+          </div>
+        </div>
+
+        <div class="achievement-card cert">
+          <div class="achievement-icon cert-logo nv">Nv</div>
+          <div class="achievement-body">
+            <span class="achievement-type">NVIDIA · Certification</span>
+            <h4>Computer Networking — NVIDIA</h4>
+            <p>Certification focused on modern networking concepts, protocols, and infrastructure relevant to AI and cloud workloads.</p>
+          </div>
+        </div>
+
+        <div class="achievement-card cert">
+          <div class="achievement-icon cert-logo soc-ai">AI</div>
+          <div class="achievement-body">
+            <span class="achievement-type">Certification</span>
+            <h4>GenAI for SOC Analysts</h4>
+            <p>Certification focused on applying generative AI techniques in Security Operations Center workflows.</p>
+          </div>
+        </div>
+
+        <div class="achievement-card cert">
+          <div class="achievement-icon cert-logo soc2">S2</div>
+          <div class="achievement-body">
+            <span class="achievement-type">Certification</span>
+            <h4>SOC 2 Compliance Essential</h4>
+            <p>Certification covering SOC 2 compliance requirements and audit readiness for cloud service organizations.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="section-fade-bottom"></div>
+  </section>
+
+  <!-- RECOMMENDATIONS -->
+  <section id="recommendations">
+    <div class="section-fade-top"></div>
+    <div class="container">
+      <div class="section-heading-wrap">
+        <div class="section-label">Recommendations</div>
+        <h2 class="section-heading">What People Say</h2>
+        <span class="heading-line"></span>
+      </div>
+      <div class="recs-grid">
+
+        <div class="rec-card">
+          <div class="rec-quote-icon">"</div>
+          <div class="rec-author">
+            <div class="rec-avatar">SV</div>
+            <div class="rec-info">
+              <span class="rec-name">Shyam Venkataraman</span>
+              <span class="rec-title">Executive Director, Software Engineering (Cloud/AI/ML Ops) · Toshiba</span>
+              <span class="rec-relation">Direct Manager · April 2026</span>
+            </div>
+          </div>
+          <p class="rec-text rec-clamped">It is a genuine privilege to recommend Ahmet Koc, who joined our Product Security Engineering team at Toshiba as an intern and very quickly distinguished himself as one of the most promising young engineers I have had the pleasure of working with. He ramped up on complex security topics with remarkable speed, took full ownership of his tasks, and began contributing meaningfully to our cloud security posture in ways that materially improved our visibility into risk. What set him apart was the initiative he showed in stepping up well beyond his assigned scope, organizing and energizing his fellow interns, and elevating the entire cohort experience. Ahmet brings a rare combination of intellectual curiosity, humility, reliability, and quiet leadership. Any team fortunate enough to have him will gain not only a strong product security engineer but a future leader.</p>
+          <button class="rec-toggle" aria-expanded="false">Read more</button>
+        </div>
+
+        <div class="rec-card">
+          <div class="rec-quote-icon">"</div>
+          <div class="rec-author">
+            <div class="rec-avatar">MF</div>
+            <div class="rec-info">
+              <span class="rec-name">Marco Ferreira</span>
+              <span class="rec-title">AI/ML, Cybersecurity & Automation/Cloud Specialist · Toshiba</span>
+              <span class="rec-relation">Senior Colleague · December 2025</span>
+            </div>
+          </div>
+          <p class="rec-text rec-clamped">Ahmet is not only smart, but he is committed. He does not allow lack of practice in something deter him from completing a task or initializing a new way to handle things. He goes and does his research, finds the right formula and executes. He doesn't wait for someone to do it for him, he gets the job done, by the deadline set forth. You can't teach that. His knowledge and commitment are unparalleled and to say that he builds relationships wherever he is, is an understatement. Ahmet is truly an asset to any team and no matter what the task is, he communicates, visualizes his end plan and works through everything with deadlines in mind and is never afraid to ask questions.</p>
+          <button class="rec-toggle" aria-expanded="false">Read more</button>
+        </div>
+
+        <div class="rec-card">
+          <div class="rec-quote-icon">"</div>
+          <div class="rec-author">
+            <div class="rec-avatar">AI</div>
+            <div class="rec-info">
+              <span class="rec-name">Andrei Ilyushchyts</span>
+              <span class="rec-title">Product Security Engineer · Android & Linux Kernel Security Research</span>
+              <span class="rec-relation">Senior Colleague · December 2025</span>
+            </div>
+          </div>
+          <p class="rec-text rec-clamped">They say not all heroes wear capes, but after working with Ahmet for nearly a year, I'm convinced he's one of them in the cybersecurity world. As our Product Security Intern, Ahmet didn't just 'monitor' our cloud — he became its chief guardian. He has a supernatural ability to spot a misconfigured Azure Storage Access from a mile away and fix it before the rest of us have even finished our morning coffee. What really sets him apart is his ability to translate complex technical jargon into something the rest of the team can actually understand. If you need someone who treats cloud security like a high-stakes chess game (and always wins), hire Ahmet. Solid 11/10 — I'd trust him with our Azure tenants any day!</p>
+          <button class="rec-toggle" aria-expanded="false">Read more</button>
+        </div>
+
+        <div class="rec-card">
+          <div class="rec-quote-icon">"</div>
+          <div class="rec-author">
+            <div class="rec-avatar">DP</div>
+            <div class="rec-info">
+              <span class="rec-name">Dmytro Pavlenko</span>
+              <span class="rec-title">Head of Security · Toshiba</span>
+              <span class="rec-relation">Direct Manager · December 2025</span>
+            </div>
+          </div>
+          <p class="rec-text rec-clamped">I have had the privilege of managing Ahmet during his internship as a Security Engineer, and I can confidently say he has been an outstanding addition to our team. Ahmet demonstrated strong analytical skills and a proactive approach in handling security incidents, alerts, and providing actionable recommendations. His ability to quickly assess complex situations, prioritize tasks, and communicate findings clearly made a real impact on our security operations. One of the highlights of his internship was being recognized as the Fall 2025 Intern of the Cohort Award winner, a testament to his exceptional performance and dedication. Beyond technical expertise, Ahmet brought professionalism and a collaborative spirit that made working with him a pleasure.</p>
+          <button class="rec-toggle" aria-expanded="false">Read more</button>
+        </div>
+
+      </div>
+    </div>
+    <div class="section-fade-bottom"></div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-fade-top"></div>
+    <div class="container">
+      <div class="section-heading-wrap" style="text-align:center;">
+        <div class="section-label">Contact</div>
+        <h2 class="section-heading">Let's Connect</h2>
+        <span class="heading-line" style="margin: 0.5rem auto 0;"></span>
+      </div>
+      <div class="contact-grid">
+
+        <div class="contact-info">
+          <p class="contact-sub">
+            I'm always open to discussing security challenges, cloud architecture,
+            or new opportunities. Feel free to reach out.
+          </p>
+          <div class="contact-links">
+            <a href="mailto:ahmetffkoc@gmail.com" class="contact-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              ahmetffkoc@gmail.com
+            </a>
+            <a href="https://linkedin.com/in/ahmetfkoc" target="_blank" rel="noopener" class="contact-link">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              linkedin.com/in/ahmetfkoc
+            </a>
+            <a href="https://github.com/ahmetfkoc" target="_blank" rel="noopener" class="contact-link">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+              github.com/ahmetfkoc
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <input type="text" id="senderName" placeholder="Your Name" required />
+          </div>
+          <div class="form-group">
+            <input type="email" id="senderEmail" placeholder="Your Email" required />
+          </div>
+          <div class="form-group">
+            <textarea id="senderMessage" rows="5" placeholder="Your Message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Send Message
+          </button>
+          <p class="form-note" id="formNote"></p>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <span class="footer-logo">AFK</span>
+          <p class="footer-tagline">Product Security Engineer · Cloud Security</p>
+        </div>
+        <div class="footer-links">
+          <a href="mailto:ahmetffkoc@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="18" height="18"><path d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/ahmetfkoc" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://github.com/ahmetfkoc" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          </a>
+        </div>
+        <p class="footer-copy">© 2026 Ahmet Furkan Koç. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
