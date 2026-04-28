@@ -458,6 +458,7 @@ body::after {
 
 /* ===== PROJECTS ===== */
 .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.project-card--featured { grid-column: 1 / -1; }
 .project-card {
   background: var(--bg-card); backdrop-filter: var(--glass);
   border: 1px solid var(--border); border-radius: var(--radius-lg);
@@ -501,6 +502,25 @@ body::after {
   background: rgba(255,255,255,0.03);
   color: rgba(255,255,255,0.45); flex-shrink: 0;
 }
+.project-live-btn {
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  font-size: 0.68rem; font-weight: 600; padding: 0.22rem 0.65rem;
+  border-radius: 99px; text-decoration: none;
+  background: rgba(74,222,128,0.12); color: #4ade80;
+  border: 1px solid rgba(74,222,128,0.25);
+  transition: background 0.2s, border-color 0.2s;
+}
+.project-live-btn:hover { background: rgba(74,222,128,0.22); border-color: rgba(74,222,128,0.5); }
+.project-gh-link {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-size: 0.72rem; font-weight: 500; padding: 0.28rem 0.8rem;
+  border-radius: 6px; text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.03);
+  color: rgba(255,255,255,0.45);
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.project-gh-link:hover { color: var(--accent2); border-color: rgba(167,139,250,0.35); background: rgba(167,139,250,0.07); }
 
 /* ===== SKILLS ===== */
 .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
