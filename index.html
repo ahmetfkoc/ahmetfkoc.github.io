@@ -39,6 +39,7 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#recommendations">Recommendations</a></li>
+        <li><a href="#blog">Blog</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="nav-right">
@@ -568,6 +569,61 @@
     </div>
     <div class="section-fade-bottom"></div>
   </section>
+
+  <!-- BLOG -->
+  <section id="blog">
+    <div class="section-fade-top"></div>
+    <div class="container">
+      <div class="section-heading-wrap">
+        <div class="section-label">Blog</div>
+        <h2 class="section-heading">Thoughts & Write-ups</h2>
+        <span class="heading-line"></span>
+        <p class="blog-subheading">Breaking down what's happening in cybersecurity — from cloud misconfigurations to AI-powered threats — in plain language.</p>
+      </div>
+      <div class="blog-carousel">
+        <button class="blog-arrow blog-arrow-left" id="blogArrowLeft" aria-label="Scroll left">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="blog-scroll-wrapper" id="blogScrollWrapper">
+          <div class="blog-track" id="blogTrack"></div>
+        </div>
+        <button class="blog-arrow blog-arrow-right" id="blogArrowRight" aria-label="Scroll right">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="blog-scrollbar-wrap">
+        <div class="blog-scrollbar-track">
+          <div class="blog-scrollbar-thumb" id="blogScrollThumb"></div>
+        </div>
+      </div>
+    </div>
+    <div class="section-fade-bottom"></div>
+  </section>
+
+  <!-- BLOG MODAL -->
+  <div id="blogModal" class="blog-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="blog-modal-backdrop" id="blogModalBackdrop"></div>
+    <div class="blog-modal-panel">
+      <div class="blog-modal-header">
+        <div class="blog-modal-meta">
+          <span class="blog-modal-tag" id="modalTag"></span>
+          <span class="blog-modal-date" id="modalDate"></span>
+        </div>
+        <button class="blog-modal-close" id="blogModalClose" aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20">
+            <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="blog-modal-body">
+        <div class="blog-modal-img-wrap">
+          <img id="modalImg" src="" alt="" class="blog-modal-img" />
+        </div>
+        <h1 class="blog-modal-title" id="modalTitle"></h1>
+        <div class="blog-modal-content" id="modalContent"></div>
+      </div>
+    </div>
+  </div>
 
   <!-- CONTACT -->
   <section id="contact">
