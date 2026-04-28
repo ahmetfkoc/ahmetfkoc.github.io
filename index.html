@@ -265,22 +265,28 @@
             <div class="project-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 001.357 2.059l.263.09M14.25 3.104c.251.023.501.05.75.082M19.5 7.336V3m0 0h-3m3 0l-3 4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
-            <span class="project-date">December 2025</span>
+            <div style="display:flex;align-items:center;gap:0.6rem;">
+              <span class="project-date">December 2025</span>
+              <a href="https://github.com/ahmetfkoc/mdfc-triage-sentinel" target="_blank" rel="noopener" class="project-gh-link">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="11" height="11"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                GitHub
+              </a>
+            </div>
           </div>
           <h3 class="project-title">Agentic AI Threat Assessment System</h3>
           <p class="project-desc">
-            Autonomous AI agent system integrated with cloud deployment infrastructure for real-time
-            threat assessment and security monitoring. Implements agent orchestration to continuously
-            monitor cloud resources and analyze threat intelligence feeds.
+            Autonomous multi-agent security system that triages Microsoft Defender for Cloud Attack Path alerts
+            using a LangGraph supervisor pipeline. Classifies cloud resources by environment, analyzes NSG exposure
+            and active CVEs, generates structured security verdicts, and creates Jira tickets — with Human-in-the-Loop approval before any action.
           </p>
           <ul class="project-highlights">
-            <li>Automated classification of <strong>200+ daily security logs</strong></li>
-            <li><strong>90% accuracy</strong> in risk severity labeling vs. manual assessments</li>
-            <li>Attack vector analysis with continuous monitoring</li>
+            <li>Multi-agent pipeline: <strong>ContextAgent, NetworkAgent, ThreatHunter</strong> with LLM-based supervisor routing</li>
+            <li>Automated classification of <strong>200+ daily security logs</strong> — <strong>90% accuracy</strong> in risk severity labeling</li>
+            <li>HITL interrupt gate before ticket creation or alert dismissal; PostgreSQL state persistence</li>
           </ul>
           <div class="project-footer">
             <div class="project-tags">
-              <span>Python</span><span>Google Agentic Architecture</span><span>Cloud</span><span>AI/LLM</span>
+              <span>Python</span><span>LangGraph</span><span>FastAPI</span><span>Azure Defender</span><span>OpenAI</span>
             </div>
             <span class="toshiba-badge">
               <svg viewBox="0 0 60 12" width="52" height="12" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><text x="0" y="11" font-family="Arial, sans-serif" font-weight="700" font-size="11" letter-spacing="1.5">TOSHIBA</text></svg>
@@ -291,30 +297,24 @@
         <div class="project-card">
           <div class="project-header">
             <div class="project-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
-            <div style="display:flex;align-items:center;gap:0.6rem;">
-              <span class="project-date">April 2026</span>
-              <a href="https://github.com/ahmetfkoc/mdfc-triage-sentinel" target="_blank" rel="noopener" class="project-gh-link">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="11" height="11"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-                GitHub
-              </a>
-            </div>
+            <span class="project-date">August 2025</span>
           </div>
-          <h3 class="project-title">MDFC Triage Sentinel</h3>
+          <h3 class="project-title">AI Security Agent for Cloud Monitoring</h3>
           <p class="project-desc">
-            Autonomous security operations agent that triages Microsoft Defender for Cloud Attack Path alerts
-            using a multi-agent LangGraph pipeline. Classifies cloud resources by environment, analyzes NSG exposure
-            and active CVEs, generates security verdicts, and creates Jira tickets — with Human-in-the-Loop approval before any action.
+            Security agent built with Azure AI Foundry to detect publicly exposed cloud resources
+            and identify security vulnerabilities across Azure infrastructure. Features automated
+            email notifications to resource owners with detailed exposure reports.
           </p>
           <ul class="project-highlights">
-            <li>Multi-agent pipeline: <strong>ContextAgent, NetworkAgent, ThreatHunter</strong> with LLM-based supervisor routing</li>
-            <li>HITL interrupt gate before Jira ticket creation or alert dismissal</li>
-            <li>PostgreSQL state persistence via custom LangGraph checkpointer</li>
+            <li><strong>45% reduction</strong> in Mean Time to Respond (MTTR)</li>
+            <li>Automated alerting for publicly exposed assets</li>
+            <li>Command-based triggers with detailed guidance reports</li>
           </ul>
           <div class="project-footer">
             <div class="project-tags">
-              <span>Python</span><span>LangGraph</span><span>FastAPI</span><span>Azure Defender</span><span>OpenAI</span>
+              <span>Azure AI Foundry</span><span>RAG</span><span>Python</span><span>CSPM</span>
             </div>
             <span class="toshiba-badge">
               <svg viewBox="0 0 60 12" width="52" height="12" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><text x="0" y="11" font-family="Arial, sans-serif" font-weight="700" font-size="11" letter-spacing="1.5">TOSHIBA</text></svg>
