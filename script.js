@@ -13,70 +13,260 @@
 })();
 
 
-// ===== CANVAS BACKGROUND =====
+// ===== PARTICLE MESH NETWORK BACKGROUND =====
 (function () {
   const canvas = document.getElementById('bg-canvas');
+  // Move canvas to end of body so it paints after all sections in DOM order
+  document.body.appendChild(canvas);
   const ctx = canvas.getContext('2d');
-  let W, H, particles, shooters;
+  let W, H, particles, dpr;
+  const PARTICLE_COUNT = 90;
+  const CONNECT_DIST = 150;
+  const MOUSE_RADIUS = 180;
+  const mouse = { x: -9999, y: -9999 };
 
-  function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+  function resize() {
+    dpr = window.devicePixelRatio || 1;
+    W = window.innerWidth;
+    H = window.innerHeight;
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
 
   function makeParticle() {
     return {
-      x: Math.random() * W, y: Math.random() * H,
-      r: Math.random() * 1.2 + 0.3,
-      speedX: (Math.random() - 0.5) * 0.18,
-      speedY: (Math.random() - 0.5) * 0.18,
-      opacity: Math.random() * 0.35 + 0.15,
-      pulse: Math.random() * Math.PI * 2,
-      pulseSpeed: Math.random() * 0.012 + 0.004,
+      x: Math.random() * W,
+      y: Math.random() * H,
+      r: Math.random() * 1.2 + 0.4,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3,
+      opacity: Math.random() * 0.5 + 0.15,
     };
   }
 
-  function makeShooting() {
-    const angle = Math.PI / 6 + (Math.random() * Math.PI) / 8;
-    const speed = Math.random() * 6 + 5;
-    return {
-      x: Math.random() * W * 0.7, y: Math.random() * H * 0.4,
-      vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed,
-      len: Math.random() * 80 + 60, opacity: 1,
-      fade: Math.random() * 0.018 + 0.012, alive: true,
-    };
+  function init() {
+    resize();
+    particles = Array.from({ length: PARTICLE_COUNT }, makeParticle);
   }
 
-  function init() { resize(); particles = Array.from({ length: 160 }, makeParticle); shooters = []; }
+  document.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+  document.addEventListener('mouseleave', () => { mouse.x = -9999; mouse.y = -9999; });
 
-  let lastShot = 0;
-  function draw(ts) {
+  function draw() {
     ctx.clearRect(0, 0, W, H);
-    particles.forEach(p => {
-      p.pulse += p.pulseSpeed;
-      const alpha = p.opacity * (0.7 + 0.3 * Math.sin(p.pulse));
-      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(167,139,250,${alpha})`;
+
+    // Update positions — gentle mouse attraction (not repulsion)
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+      const dx = mouse.x - p.x;
+      const dy = mouse.y - p.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < MOUSE_RADIUS && dist > 1) {
+        const pull = 0.008 * (1 - dist / MOUSE_RADIUS);
+        p.vx += (dx / dist) * pull;
+        p.vy += (dy / dist) * pull;
+      }
+      p.vx *= 0.99;
+      p.vy *= 0.99;
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < -5) p.x = W + 5;
+      if (p.x > W + 5) p.x = -5;
+      if (p.y < -5) p.y = H + 5;
+      if (p.y > H + 5) p.y = -5;
+    }
+
+    // Draw connections — batch into single path per alpha range for performance
+    ctx.lineCap = 'round';
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const a = particles[i], b = particles[j];
+        const dx = a.x - b.x, dy = a.y - b.y;
+        const distSq = dx * dx + dy * dy;
+        if (distSq < CONNECT_DIST * CONNECT_DIST) {
+          const dist = Math.sqrt(distSq);
+          const alpha = (1 - dist / CONNECT_DIST) * 0.15;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = `rgba(108,99,255,${alpha})`;
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Mouse-to-particle connections — brighter accent lines
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+      const dx = p.x - mouse.x, dy = p.y - mouse.y;
+      const distSq = dx * dx + dy * dy;
+      if (distSq < MOUSE_RADIUS * MOUSE_RADIUS) {
+        const dist = Math.sqrt(distSq);
+        const alpha = (1 - dist / MOUSE_RADIUS) * 0.25;
+        ctx.beginPath();
+        ctx.moveTo(mouse.x, mouse.y);
+        ctx.lineTo(p.x, p.y);
+        ctx.strokeStyle = `rgba(167,139,250,${alpha})`;
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+      }
+    }
+
+    // Draw particles — crisp small dots
+    for (let i = 0; i < particles.length; i++) {
+      const p = particles[i];
+      const dx = p.x - mouse.x, dy = p.y - mouse.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      const near = dist < MOUSE_RADIUS ? 1 + (1 - dist / MOUSE_RADIUS) * 1.5 : 1;
+      const r = p.r * near;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(167,139,250,${p.opacity * near * 0.7})`;
       ctx.fill();
-      p.x += p.speedX; p.y += p.speedY;
-      if (p.x < -2) p.x = W + 2; if (p.x > W + 2) p.x = -2;
-      if (p.y < -2) p.y = H + 2; if (p.y > H + 2) p.y = -2;
-    });
-    if (ts - lastShot > 3200) { shooters.push(makeShooting()); lastShot = ts; }
-    shooters = shooters.filter(s => s.alive);
-    shooters.forEach(s => {
-      const mag = Math.hypot(s.vx, s.vy);
-      const tailX = s.x - s.vx * (s.len / mag);
-      const tailY = s.y - s.vy * (s.len / mag);
-      const grad = ctx.createLinearGradient(tailX, tailY, s.x, s.y);
-      grad.addColorStop(0, `rgba(167,139,250,0)`);
-      grad.addColorStop(1, `rgba(220,210,255,${s.opacity})`);
-      ctx.beginPath(); ctx.moveTo(tailX, tailY); ctx.lineTo(s.x, s.y);
-      ctx.strokeStyle = grad; ctx.lineWidth = 1.5; ctx.stroke();
-      s.x += s.vx; s.y += s.vy; s.opacity -= s.fade;
-      if (s.opacity <= 0 || s.x > W + 50 || s.y > H + 50) s.alive = false;
-    });
+    }
+
     requestAnimationFrame(draw);
   }
+
   window.addEventListener('resize', resize);
-  init(); requestAnimationFrame(draw);
+  init();
+  requestAnimationFrame(draw);
+})();
+
+
+// ===== CURSOR TRAIL =====
+(function () {
+  const trail = [];
+  const MAX = 16;
+  let mx = -9999, my = -9999;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    trail.push({ x: mx, y: my, a: 0.35 });
+    if (trail.length > MAX) trail.shift();
+  });
+
+  const c = document.createElement('canvas');
+  c.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:3;pointer-events:none;';
+  document.body.appendChild(c);
+  const ctx = c.getContext('2d');
+  let W, H, dpr;
+
+  function resize() {
+    dpr = window.devicePixelRatio || 1;
+    W = window.innerWidth; H = window.innerHeight;
+    c.width = W * dpr; c.height = H * dpr;
+    c.style.width = W + 'px'; c.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    for (let i = trail.length - 1; i >= 0; i--) {
+      const p = trail[i];
+      p.a -= 0.025;
+      if (p.a <= 0) { trail.splice(i, 1); continue; }
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 3 * p.a + 1, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(108,99,255,${p.a * 0.6})`;
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+})();
+
+
+// ===== CLICK RIPPLE =====
+(function () {
+  const ripples = [];
+
+  document.addEventListener('click', e => {
+    ripples.push({ x: e.clientX, y: e.clientY, r: 0, a: 0.4 });
+  });
+
+  const c = document.createElement('canvas');
+  c.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:4;pointer-events:none;';
+  document.body.appendChild(c);
+  const ctx = c.getContext('2d');
+  let W, H, dpr;
+
+  function resize() {
+    dpr = window.devicePixelRatio || 1;
+    W = window.innerWidth; H = window.innerHeight;
+    c.width = W * dpr; c.height = H * dpr;
+    c.style.width = W + 'px'; c.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    for (let i = ripples.length - 1; i >= 0; i--) {
+      const rip = ripples[i];
+      rip.r += 1.8;
+      rip.a -= 0.012;
+      if (rip.a <= 0) { ripples.splice(i, 1); continue; }
+      ctx.beginPath();
+      ctx.arc(rip.x, rip.y, rip.r, 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(167,139,250,${rip.a})`;
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    }
+    requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+})();
+
+
+// ===== 3D TILT + SPOTLIGHT ON CARDS, BUTTONS, HERO PHOTO =====
+(function () {
+  const TILT_MAX = 6;
+  const cardSel = '.stat-card, .project-card, .achievement-card, .rec-card, .education-card, .blog-card';
+  const btnSel = '.btn, .badge, .nav-links a, .contact-link, .project-live-btn, .project-gh-link, .blog-arrow, .skill-tags span';
+  const photoSel = '.avatar-ring';
+
+  // Cards — full 3D tilt + spotlight
+  document.querySelectorAll(cardSel).forEach(el => {
+    el.addEventListener('mousemove', e => {
+      const r = el.getBoundingClientRect();
+      const x = e.clientX - r.left, y = e.clientY - r.top;
+      const cx = r.width / 2, cy = r.height / 2;
+      const ry = ((x - cx) / cx) * TILT_MAX;
+      const rx = ((cy - y) / cy) * TILT_MAX;
+      el.style.transform = `perspective(600px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
+      el.style.background = `radial-gradient(circle at ${(x/r.width)*100}% ${(y/r.height)*100}%, rgba(108,99,255,0.07) 0%, rgba(255,255,255,0.03) 50%)`;
+    });
+    el.addEventListener('mouseleave', () => { el.style.transform = ''; el.style.background = ''; });
+  });
+
+  // Buttons — subtle scale + glow
+  document.querySelectorAll(btnSel).forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      el.style.boxShadow = '0 0 16px rgba(108,99,255,0.2), 0 4px 12px rgba(108,99,255,0.1)';
+    });
+    el.addEventListener('mouseleave', () => { el.style.boxShadow = ''; });
+  });
+
+  // Hero photo — 3D tilt
+  document.querySelectorAll(photoSel).forEach(el => {
+    el.addEventListener('mousemove', e => {
+      const r = el.getBoundingClientRect();
+      const x = e.clientX - r.left, y = e.clientY - r.top;
+      const cx = r.width / 2, cy = r.height / 2;
+      const ry = ((x - cx) / cx) * 10;
+      const rx = ((cy - y) / cy) * 10;
+      el.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+    });
+    el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+  });
 })();
 
 

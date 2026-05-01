@@ -29,12 +29,6 @@ body {
   color: var(--text);
   line-height: 1.7;
   overflow-x: hidden;
-  /* Page entrance animation */
-  animation: page-enter 0.7s ease both;
-}
-@keyframes page-enter {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
 }
 
 nav, section, footer, #back-to-top { position: relative; z-index: 1; }
@@ -57,11 +51,41 @@ body::after {
   opacity: 0.028;
 }
 
-/* ===== CANVAS ===== */
+/* ===== CANVAS — renders above sections, below nav, pointer-events:none so clicks pass through ===== */
 #bg-canvas {
   position: fixed; top:0; left:0;
   width:100%; height:100%;
-  z-index: 0; pointer-events: none;
+  z-index: 2; pointer-events: none;
+}
+
+/* ===== 3D TILT — smooth transitions & gradient border glow ===== */
+.stat-card, .project-card, .achievement-card,
+.rec-card, .education-card, .blog-card {
+  transition: transform 0.15s ease-out, border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  will-change: transform;
+}
+.stat-card:hover,
+.project-card:hover,
+.achievement-card:hover,
+.rec-card:hover,
+.education-card:hover,
+.blog-card:hover {
+  border-color: rgba(108,99,255,0.4);
+  box-shadow:
+    0 0 0 1px rgba(108,99,255,0.15),
+    0 0 20px rgba(108,99,255,0.1),
+    0 12px 40px rgba(108,99,255,0.08);
+}
+
+/* Hero photo 3D tilt */
+.avatar-ring {
+  transition: transform 0.15s ease-out;
+}
+
+/* Button glow on hover */
+.btn, .badge, .project-live-btn, .project-gh-link,
+.blog-arrow, .skill-tags span, .contact-link {
+  transition: all 0.2s ease;
 }
 
 /* ===== CURSOR GLOW ===== */
@@ -120,8 +144,8 @@ body::after {
 .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
 
 /* ===== SECTION FADES ===== */
-.section-fade-top    { height: 60px; background: linear-gradient(to bottom, var(--bg), transparent); pointer-events: none; }
-.section-fade-bottom { height: 60px; background: linear-gradient(to top,    var(--bg), transparent); pointer-events: none; }
+.section-fade-top    { height: 60px; background: linear-gradient(to bottom, rgba(7,7,15,0.6), transparent); pointer-events: none; }
+.section-fade-bottom { height: 60px; background: linear-gradient(to top,    rgba(7,7,15,0.6), transparent); pointer-events: none; }
 
 /* ===== GLASS MIXIN (applied per card) ===== */
 .glass {
